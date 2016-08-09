@@ -48,6 +48,24 @@
       SongPlayer.currentTime = null;
 
       /**
+      * @desc Current volume
+      * @type {Number}
+      */
+      SongPlayer.volume = 50;
+
+      /**
+      * @function setVolume
+      * @desc Set volume level of current song
+      * @param {Number} level
+      */
+      SongPlayer.setVolume = function(level) {
+        SongPlayer.volume = level;
+        if (currentBuzzObject) {
+            currentBuzzObject.setVolume(level);
+        }
+      }
+
+      /**
       * @function setSong
       * @desc Stops currently playing song and loads new audio file as currentBuzzObject
       * @param {Object} song
